@@ -20,7 +20,7 @@
 `Install node version 16.0.0`
 
 **2.**
-`npm install -g pnpm`
+`cd build`
 
 **3.**
 `pnpm install && pnpm build`
