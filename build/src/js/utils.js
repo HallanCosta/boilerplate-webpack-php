@@ -198,7 +198,33 @@ export function $removeAttr(element, attribute) {
     element.removeAttribute(attribute);
 }
 
-export function $toggle(element, className, callback) {
+export function $toggleAttr(element, attribute) {
+    var attr = $getAttr(element, attribute);
+
+    if (attr !== null) {
+        $removeAttr(element, attribute)
+    } else {
+        $attr(element, attribute)
+    }
+}
+
+/**
+ * Exist this attribute on element 
+ * @param {HTMLElement} element - element html
+ * @param {string} attribute - attribute or property of element 
+ * @returns {boolean} - returned a boolean 
+ */
+export function $findAttr(element, attribute) {
+    var attr = $getAttr(element, attribute);
+
+    if (attr !== null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export function $toggle(element, className, callback = function() {}) {
     if (!$hasClass(element, className)) {
         $addClass(element, className);
         callback(true);
@@ -212,14 +238,8 @@ export function $find(element, seletor) {
     return element.querySelector(seletor);
 }
 
-export function $findAttr(element, attribute) {
-    var attr = $getAttr(element, attribute);
-
-    if (attr !== null) {
-        return true;
-    } else {
-        return false;
-    }
+export function $finds(element, seletor) {
+    return element.querySelectorAll(seletor);
 }
 
 export function $addHTML(element, html) {
@@ -238,3 +258,30 @@ export function $addText(element, text) {
 export function $delay(callback, time) {
     setTimeout(callback, time * 1000);
 }
+
+//https://stackoverflow.com/questions/524696/how-to-create-a-style-tag-with-javascript
+/**
+ * 
+ * @param {css} styleSheet 
+ */
+export function $style(css) {
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var style = document.createElement('style');
+
+    style.type = 'text/css';
+    if (style.styleSheet){
+        // This is required for IE8 and below.
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+
+    head.appendChild(style);
+}
+
+/**
+ * 
+ * @param {int} s - how long do you sleep in seconds
+ * @returns return promise sleeping  
+ */
+export var $sleep = (s) => new Promise((p) => setTimeout(p, (s * 1000) | 0));

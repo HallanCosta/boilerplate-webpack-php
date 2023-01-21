@@ -6,8 +6,8 @@ require_once('header.php');
 ?>
 
     <section class="home">
-        <h1 style="font-size: 50px; text-align: center;">Boilerplate PHP</h1>
-        <h2 style="font-size: 40px; text-align: center;">Sem framework</h2>
+        <h1 style="font-size: 50px; text-align: center;">Boilerplate PHP sem framework</h1>
+        <p id="test" style="font-size: 24px; text-align: center; border: 1px solid black; padding: 10px; cursor: pointer;">clique aqui para testar o JS e o path alias</p>
     </section>
 
     <script type="text/javascript">

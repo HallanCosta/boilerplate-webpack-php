@@ -1,5 +1,5 @@
-
-import '../css/style.scss';
+// Styles SASS from app
+import '@styles';
 
 import { 
     $event, 
@@ -10,9 +10,9 @@ import {
     $hasClass,
     $attr,
     $removeAttr
-} from './utils';
+} from '@app/utils';
 
-import { Home } from './pages/home';
+import { Home } from '@app/pages/home';
 
 /**
  * Init the code 

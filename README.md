@@ -8,16 +8,19 @@
 - [x] HTML
 - [x] JAVASCRIPT
 - [x] SASS
+- [x] BABEL
 - [x] WEBPACK
 - [x] BROWSER-SYNC
+- [x] NORMALIZE.CSS
+- [x] BABEL-PLUGIN-WEBPACK-ALIAS
 
 ** Run the code:**
 
 **1.**
 `Install node version 16.0.0`
 
-**2. if necessary**
-`npm install -g npm@9.2.0`
+**2.**
+`npm install -g pnpm`
 
 **3.**
-`npm install --legacy-peer-deps && npm run build`
+`pnpm install && pnpm build`

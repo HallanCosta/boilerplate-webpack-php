@@ -2,21 +2,23 @@ const path = require("path");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const getPublicPath = require('./publicPath');
+require("babel-polyfill");
 
 module.exports = (env, argv) => ({
-  entry: "./src/js/index.js",
+  entry: ["babel-polyfill", "./src/js/index.js"],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "../"),
     publicPath: getPublicPath(''),
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, "../"),
-    writeToDisk: true,
-    open: false,
-  },
   optimization: {
     minimize: false
+  },
+  resolve: { // babel-plugin-webpack-alias
+    alias: {
+        '@app': path.join(__dirname, './src/js'), // name from app to folder root
+        '@styles': path.join(__dirname, './src/sass/style.scss')
+    }
   },
   plugins:
   [
