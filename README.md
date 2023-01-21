@@ -23,4 +23,11 @@
 `cd build`
 
 **3.**
+`npm install -g pnpm`
+
+**4.**
 `pnpm install && pnpm build`
+
+or (if above doesn't work)
+
+`npm install --legacy-peer-deps && npm run build`
