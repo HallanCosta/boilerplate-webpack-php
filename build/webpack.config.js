@@ -2,6 +2,8 @@ const path = require("path");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const getPublicPath = require('./publicPath');
+const autoprefixer = require("autoprefixer");
+const postcssPresetEnv = require("postcss-preset-env");
 require("babel-polyfill");
 
 module.exports = (env, argv) => ({
@@ -51,31 +53,34 @@ module.exports = (env, argv) => ({
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-              url: false,
-            },
-          },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
+              postcssOptions: {
+                plugins: [
+                  postcssPresetEnv({
+                    stage: 3,
+                    features: {
+                      'nesting-rules': true
+                    },
+                    browsers: [
+                      'ie 8',
+                      'last 2 versions'
+                    ]
+                  }),
+                  autoprefixer({
+                    overrideBrowserslist: [
+                      'ie 8', 
+                      'last 2 versions'
+                    ],
+                  }),
+                ],
+              }
             }
           },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-              sassOptions: {
-                outputStyle: 'expanded'
-              }
-            },
-          },
+          'sass-loader'
         ],
       },
     ],

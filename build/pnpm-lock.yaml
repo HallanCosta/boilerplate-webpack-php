@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@babel/core': ^7.15.8
   '@babel/preset-env': ^7.15.8
+  autoprefixer: ^10.4.13
   babel-loader: ^8.2.3
   babel-plugin-webpack-alias: ^2.1.2
   babel-polyfill: ^6.26.0
@@ -13,6 +14,7 @@ specifiers:
   mini-css-extract-plugin: ^2.4.3
   normalize.css: ^8.0.1
   optimize-css-assets-webpack-plugin: ^6.0.1
+  postcss: ^8.4.21
   postcss-loader: ^6.2.0
   postcss-preset-env: ^6.7.0
   sass: ^1.43.4
@@ -23,6 +25,7 @@ specifiers:
 devDependencies:
   '@babel/core': 7.20.12
   '@babel/preset-env': 7.20.2_@babel+core@7.20.12
+  autoprefixer: 10.4.13_postcss@8.4.21
   babel-loader: 8.3.0_la66t7xldg4uecmyawueag5wkm
   babel-plugin-webpack-alias: 2.1.2
   babel-polyfill: 6.26.0
@@ -33,7 +36,8 @@ devDependencies:
   mini-css-extract-plugin: 2.7.2_webpack@5.75.0
   normalize.css: 8.0.1
   optimize-css-assets-webpack-plugin: 6.0.1_webpack@5.75.0
-  postcss-loader: 6.2.1_webpack@5.75.0
+  postcss: 8.4.21
+  postcss-loader: 6.2.1_6jdsrmfenkuhhw3gx4zvjlznce
   postcss-preset-env: 6.7.1
   sass: 1.57.1
   sass-loader: 12.6.0_sass@1.57.1+webpack@5.75.0
@@ -1554,6 +1558,22 @@ packages:
       lodash: 4.17.21
     dev: true
 
+  /autoprefixer/10.4.13_postcss@8.4.21:
+    resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==}
+    engines: {node: ^10 || ^12 || >=14}
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+    dependencies:
+      browserslist: 4.21.4
+      caniuse-lite: 1.0.30001446
+      fraction.js: 4.2.0
+      normalize-range: 0.1.2
+      picocolors: 1.0.0
+      postcss: 8.4.21
+      postcss-value-parser: 4.2.0
+    dev: true
+
   /autoprefixer/9.8.8:
     resolution: {integrity: sha512-eM9d/swFopRt5gdJ7jrpCwgvEMIayITpojhkkSMRsFHYuH5bkSQ4p/9qTEHtmNudUZh22Tehu7I6CxAW0IXTKA==}
     hasBin: true
@@ -2927,6 +2947,10 @@ packages:
       debug: 4.3.2
     dev: true
 
+  /fraction.js/4.2.0:
+    resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
+    dev: true
+
   /fresh/0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
     engines: {node: '>= 0.6'}
@@ -3854,7 +3878,7 @@ packages:
       postcss-values-parser: 2.0.1
     dev: true
 
-  /postcss-loader/6.2.1_webpack@5.75.0:
+  /postcss-loader/6.2.1_6jdsrmfenkuhhw3gx4zvjlznce:
     resolution: {integrity: sha512-WbbYpmAaKcux/P66bZ40bpWsBucjx/TTgVVzRZ9yUO8yQfVBlameJ0ZGVaPfH64hNSBh63a+ICP5nqOpBA0w+Q==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
@@ -3863,6 +3887,7 @@ packages:
     dependencies:
       cosmiconfig: 7.1.0
       klona: 2.0.6
+      postcss: 8.4.21
       semver: 7.3.8
       webpack: 5.75.0_webpack-cli@4.10.0
     dev: true
